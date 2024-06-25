@@ -1,0 +1,151 @@
+{{template "base"}}
+
+<link rel="stylesheet" href="/assets/allArtists.css">
+
+<div class="container center">
+    <section class="filters">
+        <form class="filters" autocomplete="off" method="get" action="/all_artists_search">
+
+            <div class="search-bar-all">
+                <i class="fas fa-search"></i>
+                <input list="search" id="Search" name="Search" placeholder="Search..."/>
+                <datalist id="search">
+                    {{range .Artists}}
+                        <option value="{{.Name}} - Artist/Band"></option>
+                    {{end}}
+                    {{range .Artists}}
+                        {{range .Members}}
+                            <option value="{{.}} - Group member"></option>
+                        {{end}}
+                    {{end}}
+                    {{range .UniqueLoc}}
+                        <option value="{{.}} - Locations"></option>
+                    {{end}}
+                    {{range .Artists}}
+                        <option value="{{.CreationDate}} - Creation Date"></option>
+                    {{end}}
+                    {{range .Artists}}
+                        <option value="{{.FirstAlbum}} - First Album"></option>
+                    {{end}}
+                </datalist>
+            </div>
+            <div class="inline_filters">
+                <div class="filter_column">
+                    <p>Creation Date:</p>
+                    <div class="price-input">
+                        <div class="field">
+                            <span>Min</span>
+                            <input type="number" class="input-min" value="1900">
+                        </div>
+                        <div class="field">
+                            <span>Max</span>
+                            <input type="number" class="input-max" value="2023">
+                        </div>
+                    </div>
+                    <div class="slider">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="range-input">
+                        <input type="range" class="range-min" min="1900" max="2023" value="1900"
+                               name="creation-date-min"
+                               id="creation-date-min">
+                        <input type="range" class="range-max" min="1900" max="2023" value="2023"
+                               name="creation-date-max"
+                               id="creation-date-max">
+                    </div>
+                </div>
+                <div class="filter_column">
+                    <p>First Album Date:</p>
+                    <div class="price-input-album">
+                        <div class="field">
+                            <span>Min</span>
+                            <input type="number" class="input-min" value="1900">
+                        </div>
+                        <div class="field">
+                            <span>Max</span>
+                            <input type="number" class="input-max" value="2023">
+                        </div>
+                    </div>
+                    <div class="slider">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="range-input-album">
+                        <input type="range" class="range-min" min="1900" max="2023" value="1900"
+                               name="first-album-date-min"
+                               id="first-album-date-min">
+                        <input type="range" class="range-max" min="1900" max="2023" value="2023"
+                               name="first-album-date-max"
+                               id="first-album-date-max">
+                    </div>
+                </div>
+                <div class="filter_column">
+                    <label for="location">Locations of concerts:</label>
+                    <select name="location" id="location">
+                        <option selected>-- Select a location --</option>
+                        {{range $country, $city := .CountryLoc}}
+                            <option disabled>───── Country ─────</option>
+                            <option value="{{$country}}">{{$country}}</option>
+                            <option disabled>───── Cities ─────</option>
+                            {{range $city}}
+                                <option value="{{.}}">{{.}}</option>
+                            {{end}}
+                        {{ end }}
+                    </select>
+
+                </div>
+            </div>
+            <div class="members_filter">
+                <div class="checkbox_filters">
+                    <p>Members:</p>
+                    <div class="checkbox_filters_items">
+                        <input class="check" type="checkbox" id="one-member" name="one-member">
+                        <label for="one-member">one</label>
+                        <input class="check" type="checkbox" id="two-members" name="two-members">
+                        <label for="two-members">two</label>
+                        <input class="check" type="checkbox" id="three-members" name="three-members">
+                        <label for="three-members">three</label>
+                        <input class="check" type="checkbox" id="four-members" name="four-members">
+                        <label for="four-members">four</label>
+                        <input class="check" type="checkbox" id="five-members" name="five-members">
+                        <label for="five-members">five</label>
+                        <input class="check" type="checkbox" id="six-members" name="six-members">
+                        <label for="six-members">six</label>
+                        <input class="check" type="checkbox" id="seven-members" name="seven-members">
+                        <label for="seven-members">seven</label>
+                        <input class="check" type="checkbox" id="eight-members" name="eight-members">
+                        <label for="eight-members">eight</label>
+                        <input onchange="checkAll()" type="checkbox" id="select-all" >
+                        <label id="select-all" for="select-all">Select All</label>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="submit_filters">
+                <input class="filters_submit" type="submit" value="SEARCH">
+            </div>
+        </form>
+    </section>
+</div>
+
+<div class="index_title">
+    <h2>Featured Artists</h2>
+    <a href="/all_artists"> <span>See all -> </span></a>
+</div>
+
+<div class="scrolling-wrapper-flexbox">
+    {{range .Artists}}
+        <div class="card">
+            <a href="/artists/?id={{.ID}}">
+            <img src="{{.Image}}" alt="{{.Name}} Image">
+            <h3 class="artist_name">{{.Name}}</h3>
+
+
+                <button>See more</button>
+            </a>
+        </div>
+    {{end}}
+</div>
+
+<script src="/assets/index.js"></script>

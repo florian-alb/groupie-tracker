@@ -1,0 +1,50 @@
+{{ template "base" }}
+
+<link rel="stylesheet" href="/assets/artist.css">
+
+<div class="container">
+
+    <a class="backHome" href="/">&#8592; Back To Home</a>
+
+    <div class="header_box">
+        <div><img src="{{.Artist.Image}}" alt=""></div>
+        <div class="title_box">
+            <h2 class="title">{{.Artist.Name}}</h2>
+            <h3>Date of Creation:</h3>
+            <p>{{.Artist.CreationDate}}</p>
+            <h3>First Album:</h3>
+            <p>{{.Artist.FirstAlbum}}</p>
+        </div>
+    </div>
+    <div class="info_box">
+        <h3>Members</h3>
+        <div class="infos">
+            {{range .Artist.Members}}
+                <p>{{.}}</p>
+            {{end}}
+        </div>
+    </div>
+
+    <div class="info_box">
+        <h3>Concert Dates</h3>
+        <div class="infos">
+        {{range $i, $v := .Relation.DatesLocations}}
+                <div class="cities">
+                    <p>{{$i}}</p>
+                    <div class="dates">
+                        {{range $v}}
+                            <ul>
+                                <li>{{.}} </li>
+                            </ul>
+                        {{end}}
+                    </div>
+                </div>
+                    <hr class="separator">
+        {{end}}
+        </div>
+
+    </div>
+
+    <div class="map" style="background-image: url('{{.MapLink}}');"></div>
+
+</div>

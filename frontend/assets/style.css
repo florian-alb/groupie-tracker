@@ -1,0 +1,452 @@
+@font-face {
+    font-family: 'druktextwide-med';
+    src: url("https://cdn.shopify.com/s/files/1/0502/2331/7176/files/Druk-Wide-Medium.woff?v=1623343764") format("woff");
+}
+
+@font-face {
+    font-family: Circular;
+    src: url(https://sp-bootstrap.global.ssl.fastly.net/8.0.0/fonts/circular-light.woff2) format('woff2'),url(https://sp-bootstrap.global.ssl.fastly.net/8.0.0/fonts/circular-light.woff) format('woff');
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'druktextwide-med';
+}
+
+* {
+    font-family: 'Circular';
+}
+
+body {
+    background-color: #121212;
+    color: white;
+    overflow-x: hidden;
+}
+
+.index_title{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.index_title a{
+    color: white;
+}
+
+.index_title a:hover{
+    color: #1DB954;
+}
+
+
+#groupie_logo {
+    width: 250px;
+    margin-left: 35px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    left: 0;
+    position: absolute;
+    grid-auto-rows: minmax(90px, auto);
+    grid-gap: 2em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 80vw;
+    height: auto;
+    margin: 50px auto;
+    position: relative;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrap {
+    justify-content: center;
+    align-items: center;
+}
+
+.artist_link {
+    text-decoration: none;
+}
+
+.card {
+    width: 240px;
+    background: #212121;
+    padding: 16px;
+    border-radius: 10px;
+    filter: grayscale(100%);
+    transition: all ease-in 100ms;
+    margin-bottom: 5px;
+}
+
+.card:hover{
+    filter: none;
+}
+
+.card img {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.artist_name {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.open {
+    display: block;
+}
+
+.scrolling-wrapper-flexbox {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-bottom: 5%;
+}
+
+.scrolling-wrapper-flexbox::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    background-color: #212121;
+}
+
+.scrolling-wrapper-flexbox::-webkit-scrollbar {
+    width: 3px;
+    background-color: #212121;
+}
+
+.scrolling-wrapper-flexbox::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+
+.card {
+    flex: 0 0 auto;
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    margin: 2.5px;
+}
+
+/* --- all artists css --- */
+
+/*.all_artists{
+    display: flex;
+}*/
+
+.artist_cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter_container{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    width: 20vw;
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    background: #212121;
+    border-radius: 10px;
+}
+
+.fixed_layout{
+    border-radius: 10px;
+    padding: 10px;
+    position: fixed;
+    width: 19vw;
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+}
+
+/* -- advanced filters -- */
+
+.price-input, .price-input-album {
+    width: 100%;
+    display: flex;
+    margin: 0 0 5px;
+}
+
+.price-input .field {
+    display: flex;
+    width: 100%;
+    height: 45px;
+    align-items: center;
+}
+
+.price-input-album .field {
+    display: flex;
+    width: 100%;
+    height: 45px;
+    align-items: center;
+}
+
+.field input {
+    width: 100%;
+    /*height: 100%;*/
+    outline: none;
+    margin-left: 12px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #999;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.slider {
+    height: 5px;
+    position: relative;
+    border-radius: 5px;
+    background: white;
+}
+
+.range-input, .range-input-album {
+    position: relative;
+}
+
+.range-input input {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: -7px;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-appearance: none;
+}
+
+.range-input-album input {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: -7px;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    appearance: none;
+    -moz-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background: #1DB954;
+    pointer-events: auto;
+    -webkit-appearance: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 17px;
+    width: 17px;
+    border: none;
+    border-radius: 50%;
+    background: #1DB954;
+    pointer-events: auto;
+    -moz-appearance: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.filters{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 1000px;
+    margin-bottom: 50px
+}
+
+.filter_column{
+    box-sizing: border-box;
+    width: calc(100%/3);
+    margin: 2.5px;
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: #212121;
+    padding:15px 10px;
+}
+
+.filter_column p{
+    margin: 0;
+}
+
+.inline_filters{
+    display: flex;
+}
+
+.checkbox_filters{
+    display: flex;
+    align-items: center;
+}
+
+.checkbox_filters_all{
+    margin-left: 3rem;
+}
+
+.checkbox_filters_items{
+    margin-left: 3rem;
+    display: flex;
+}
+
+input[type="checkbox"]:not(:checked),
+input[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999%;
+}
+
+input[type="checkbox"] + label {
+    display: inline-block;
+    border-radius: 3px;
+    margin: 1px;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    transition: all ease-out 300ms;
+}
+
+input[type="checkbox"]:checked + label {
+    border: 1px solid black;
+    background-color: #1DB954;
+}
+
+input[type="checkbox"] + label:hover{
+    background-color: #1DB954;
+}
+
+input.filters_submit {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0.5rem;
+    border-radius: 3px;
+    width: 20%;
+    font-size: 15px;
+    appearance: none;
+    border: 0.5px solid #000000;
+    transition: all ease-out 300ms;
+}
+input.filters_submit:hover{
+    background-color: #1DB954;
+}
+
+#select-all{
+    margin-left: 10px;
+}
+
+.center_text{
+    width: 100vw;
+    text-align: center;
+}
+
+.search-bar-all{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    margin: 2.5px;
+}
+
+.search-bar-all input{
+    height: 35px;
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    padding: 0 10px;
+    border-radius: 10px ;
+    background: #212121;
+    color: white;
+}
+
+.search-bar-all input::placeholder {
+    color: white;
+}
+
+.submit_filters {
+    display: flex;
+    justify-content: center;
+}
+
+.members_filter{
+    margin: 2.5px;
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    padding: 0 10px;
+    border-radius: 10px ;
+    background: #212121;
+    color: white;
+}
+
+.btn_artist_info{
+    position: absolute;
+    bottom: 1rem;
+}
+
+/* --- map --- */
+.map img{
+    max-width: 99vw;
+}
+
+.map{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    color: #159442;
+}
+
+@media (max-width: 750px) {
+    .container {
+        max-width: 100vw;
+        margin: 0 10px;
+    }
+    .inline_filters {
+        flex-direction: column;
+    }
+    .filter_column {
+        width: 100%;
+    }
+    .filters {
+        max-width: 100%;
+    }
+    .price-input, .price-input-album, .checkbox_filters {
+        flex-direction: column;
+    }
+    .checkbox_filters_items {
+        margin-left: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .members_filter {
+        padding-bottom: 10px;
+    }
+    input.filters_submit {
+        width: auto;
+    }
+    #groupie_logo {
+        width: 200px;
+        display: flex;
+        margin: auto;
+        justify-content: center;
+    }
+    .card {
+        width: 37%;
+    }
+    .index_title {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 7px;
+    }
+}
